@@ -17,8 +17,13 @@ describe ('Create Price', () => {
             quantity: 1000
         };
 
-        priceRepository.save(input);
+        await priceRepository.save(input);
         const price = await priceRepository.get(1);
         expect(price).toBeInstanceOf(Price);
     });
+
+    it('Should have 1 price in the list', async () => {
+        const prices = await priceRepository.getAll();
+        expect(prices.length).toBe(1);
+    })
 });

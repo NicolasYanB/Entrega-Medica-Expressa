@@ -25,4 +25,8 @@ export class InMemoryPriceRepository implements PriceRepository {
         }
         return price;
     }
+
+    async getAll() : Promise<Price[]> {
+        return this.prices;
+    }
 }
